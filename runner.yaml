@@ -1,0 +1,18 @@
+runner:
+  name: Markdown to PlainText for TTS (Text to Speech)
+  description: A specialized Markdown to plain text converter optimized for Text-to-Speech (TTS) applications. This tool processes Markdown files by removing formatting elements, normalizing special characters, expanding common abbreviations, cleaning up code blocks, optimizing section titles for better speech pauses, and removing URLs and citation references that would negatively impact speech synthesis. The output is a clean, readable text file ready for any TTS engine (e.g. so Speechify can easily read the content to you out loud).
+  version: 0.0.1
+
+build:
+  commands: |
+    echo "START: Building the runner"
+    python3 -m pip install -U -r requirements.txt
+    echo "END: Building the runner"
+
+webform:
+  - name: input1
+    prompt: Markdown File to Convert
+    type: file
+
+launch:
+  command: app.py ${input1}
